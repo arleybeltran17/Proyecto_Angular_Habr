@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="backbox">
+      <div class="loginMsg">
+        <div class="textcontent">
+          <p class="title">Deseas Ingresar?</p>
+          <p>Ve Al Login Para Iniciar Sesion.</p>
+          <button id="switch1" (click)="Redireccion()">Login</button>
+        </div>
+      </div>
+      <div class="signupMsg visibility">
+        <div class="textcontent">
+          <p class="title">Have an account?</p>
+          <p>Log in to see all your collection.</p>
+          <button id="switch2">LOG IN</button>
+        </div>
+      </div>
+    </div>
+    <!-- backbox -->
+
+    <div class="frontbox">
+        <div class="login">
+            <h2>Crear Cuenta</h2>
+            <div class="inputbox" method="post">
+              <input type="text" name="email" id="email" placeholder="  EMAIL" [(ngModel)]="email">
+              <input type="password" name="password" id="password" placeholder="  PASSWORD" [(ngModel)]="password">
+              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="  CONFIRM PASSWORD" [(ngModel)]="confirmPassword">
+            </div>
+            <button (click)="register()">Crear Cuenta</button>
+        </div>
+
+      <div class="signup hide">
+        <h2>SIGN UP</h2>
+        <div class="inputbox">
+          <input type="text" name="fullname" placeholder="  FULLNAME">
+          <input type="text" name="email" placeholder="  EMAIL">
+          <input type="password" name="password" placeholder="  PASSWORD">
+
+        </div>
+        <button>SIGN UP</button>
+      </div>
+
+    </div>
+    <!-- frontbox -->
+  </div>
