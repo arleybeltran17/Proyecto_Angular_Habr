@@ -1,0 +1,167 @@
+
+.back{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:url(https://img2.wallspic.com/attachments/originals/8/3/5/8/5/158538-agua-montana-luz-naturaleza-paisaje_natural-5120x2880.jpg) no-repeat top center #efeff1;
+    background-size:cover;
+  }
+  
+  .thx{
+    position: fixed;
+    left:50%;
+    transform:translateX(-50%);
+    bottom: 15px;
+  }
+  nav{
+    width: 100%;
+    position: fixed;
+    top:50px;
+    text-align:center;
+  }
+  nav a{
+    font-family: 'Oswald', sans-serif;
+    font-weight:500;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:#16151b;
+    margin:0 15px;
+    font-size:16px;
+    letter-spacing:1px;
+    position:relative;
+    display:inline-block;
+  }
+  nav a:before{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background:#16151b;
+    top:47%;
+    animation:out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  }
+  nav a:hover:before{
+    animation:in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  
+  }
+  @keyframes in{
+    0%{
+      width: 0;
+      left:0;
+      right:auto;
+    }
+    100%{
+      left:0;
+      right:auto;
+      width: 100%;
+    }
+  }
+  @keyframes out{
+    0%{
+      width:100%;
+      left: auto;
+      right: 0;
+    }
+    100%{
+      width: 0;
+      left: auto;
+      right: 0;
+    }
+  }
+  @keyframes show{
+    0%{
+      opacity:0;
+      transform:translateY(-10px);
+    }
+    100%{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+  
+  @for $i from 1 through 5 {
+    nav a:nth-child(#{$i}){
+      animation:show .2s #{$i*0.1+1}s ease 1 both;
+    }
+  }
+
+  #perfil-container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    background-color: #deddddd0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #info-section {
+    flex: 1;
+    padding: 20px;
+  }
+
+  #edit-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f8f8a0;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  h2 {
+    color: #333;
+  }
+
+  p {
+    color: #555;
+  }
+
+  button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+  .inputbox{
+    margin-top:30px; 
+  }
+
+  .button_slide {
+    color: #000000;
+    border: 2px solid rgb(105, 104, 105);
+    border-radius: 0px;
+    padding: 10px 26px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #151515;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+  }
+  
+  .slide_right:hover {
+    box-shadow: inset 400px 0 0 0 #696869;
+  }

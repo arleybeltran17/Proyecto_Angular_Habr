@@ -2,6 +2,17 @@ body{
     background-color: #A8A8A8;
     font-family: 'Roboto', sans-serif;
   }
+
+  .back{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:url(https://img2.wallspic.com/attachments/originals/8/3/5/8/5/158538-agua-montana-luz-naturaleza-paisaje_natural-5120x2880.jpg) no-repeat top center #efeff1;
+    background-size:cover;
+  }
+  
   
   .container{
     /*border:1px solid white;*/

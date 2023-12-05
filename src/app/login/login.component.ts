@@ -17,11 +17,28 @@ export class LoginComponent {
   Redireccion(){
     this.router.navigateByUrl('/register')
   }
+  
+   validarPassword(contraseña: string): boolean {
+    // Puedes agregar lógica de validación del nombre aquí
+    // Por ejemplo, asegurarte de que no esté vacío
+      const regexContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+  return regexContraseña.test(contraseña);
+  }
+  
+   validarCorreo(correo: string): boolean {
+    // Puedes utilizar expresiones regulares u otras lógicas para validar el correo
+    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexCorreo.test(correo);
+  }
 
   email: string = '';
   password: string = '';
 
   login() {
+
+    const correoInput = document.querySelector("#email") as HTMLInputElement;
+    const passwordInput = document.querySelector("#password") as HTMLInputElement;
+
     // Obtener los valores del localStorage
     const storedEmail = localStorage.getItem('email');
     const storedPassword = localStorage.getItem('password');
@@ -39,14 +56,25 @@ export class LoginComponent {
     // Esperar un breve período para asegurar que los datos se hayan almacenado correctamente
     setTimeout(() => {
       // Verificar si los valores coinciden con las credenciales ingresadas
-      if (enteredEmailString === storedEmail && enteredPasswordString === storedPassword) {
-        console.log('Inicio de sesión exitoso');
-        // Puedes redirigir a la página de inicio o a cualquier otra página después del inicio de sesión
-        this.router.navigateByUrl('/dashboard');
-      } else {
-        console.log('Credenciales incorrectas');
-        alert('Credenciales incorrectas');
+      if (!this.validarCorreo(correoInput.value)) {
+        alert("Por favor, ingresa un correo electrónico válido.");
+        return;
+      }else{
+        if (!this.validarPassword(passwordInput.value)) {
+          alert("Por Favor, Ingresa Una Contraseña Valida.");
+          return;
+        }else{
+          if (enteredEmailString === storedEmail && enteredPasswordString === storedPassword) {
+            console.log('Inicio de sesión exitoso');
+            // Puedes redirigir a la página de inicio o a cualquier otra página después del inicio de sesión
+            this.router.navigateByUrl('/dashboard');
+          } else {
+            console.log('Credenciales incorrectas');
+            alert('Credenciales incorrectas');
+          }
+        }
       }
+      
     }, 100);
   }
   
